@@ -1,409 +1,189 @@
 /* Estilos Gerais */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f5f5f7; /* Fundo leve em tom cinza claro */
+    margin: 0;
+    color: #1d1d1f; /* Cor de texto escuro */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
 }
 
 /* Container Principal */
-.header-container, .real-time-container, .time-ranges-container, .options-container, .final-animation-container {
-    width: 600px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+.main-container {
+    max-width: 900px;
+    width: 100%;
+    padding: 40px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra suave para destaque */
 }
 
-/* Título da Página */
+/* Cabeçalho e Títulos */
 .header-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 2em;
+    font-weight: 600;
+    color: #1d1d1f;
     text-align: center;
+    margin-bottom: 30px;
 }
 
-/* Campos do Formulário */
-.form-group {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+h2 {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #1d1d1f;
     margin-bottom: 15px;
 }
 
-.form-group label {
-    font-size: 0.9em;
-    color: #333;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-group select,
-.form-group input[type="date"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 0.9em;
-    color: #333;
-}
-
-/* Estilo para o campo Campaign Brief */
-.brief-container {
+/* Campos do Formulário */
+.form-group, .target-duration-container, .content-parameters-container {
+    display: flex;
+    gap: 20px;
     width: 100%;
     margin-bottom: 20px;
 }
 
-.brief-container label {
+.form-group label, .brief-container label, .target-duration-container label, .content-parameters-container label {
     font-size: 1em;
-    color: #333;
-    font-weight: bold;
-    display: block;
+    font-weight: 500;
+    color: #6e6e73; /* Cor de texto cinza */
     margin-bottom: 5px;
 }
 
-.brief-container textarea {
-    width: 40%;
-    height: 60px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 0.9em;
-    resize: vertical;
-}
-
-/* Botão de Geração de Conteúdo */
-.generate-button {
-    display: block;
+/* Inputs e Seletores */
+input, select, textarea {
     width: 100%;
     padding: 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    border: 1px solid #d2d2d7;
+    border-radius: 10px;
     font-size: 1em;
-    font-weight: bold;
+    background-color: #f9f9f9;
+    transition: all 0.3s;
+    color: #1d1d1f;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #0071e3; /* Azul suave */
+    background-color: #ffffff;
+}
+
+/* Botões */
+button, .generate-button, .render-button, .action-button {
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 1em;
+    font-weight: 600;
     cursor: pointer;
-    text-align: center;
     transition: background-color 0.3s;
+    border: none;
+    text-align: center;
     margin-top: 10px;
+}
+
+.generate-button {
+    background-color: #0071e3; /* Azul Apple */
+    color: white;
 }
 
 .generate-button:hover {
-    background-color: #0056b3;
-}
-
-/* Real-Time Data (Cartões) */
-.data-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.data-card {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    font-size: 0.9em;
-    color: #333;
-}
-
-/* Time Ranges */
-.time-ranges-title {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.time-ranges-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-}
-
-.time-range-option {
-    display: flex;
-    align-items: center;
-    font-size: 0.9em;
-    color: #333;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    cursor: pointer;
-}
-
-.time-range-option:hover {
-    background-color: #e6e6e6;
-}
-
-/* Creative Options */
-.options-title {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.option-cards {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-.option-card {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    border: 2px solid transparent;
-    text-align: center;
-    position: relative;
-    cursor: pointer;
-}
-
-.option-card.active {
-    border-color: #007bff;
-}
-
-.option-card:hover {
-    border-color: #007bff;
-}
-
-.icon-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.icon-buttons button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2em;
-    color: #555;
-}
-
-.icon-buttons button:hover {
-    color: #007bff;
+    background-color: #005bb5;
 }
 
 .render-button {
-    width: 100%;
-    padding: 10px;
     background-color: #28a745;
     color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    text-align: center;
 }
 
 .render-button:hover {
     background-color: #218838;
 }
 
-/* Final Animation */
-.final-animation-title {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 10px;
+/* Cartões e Grid */
+.data-cards, .time-ranges-grid, .option-cards, .animation-preview {
+    display: grid;
+    gap: 20px;
 }
 
+.data-cards {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.data-card, .time-range-option, .option-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    text-align: center;
+    font-size: 0.95em;
+    color: #1d1d1f;
+    transition: transform 0.3s;
+}
+
+.data-card:hover, .time-range-option:hover, .option-card:hover {
+    transform: scale(1.02); /* Leve efeito de zoom ao passar o mouse */
+}
+
+/* Ações de Animação Final */
 .animation-preview {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #f9f9f9;
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 12px;
+    background-color: #f9f9f9;
     margin-bottom: 20px;
-    position: relative;
-}
-
-.play-buttons button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5em;
-    color: #555;
-}
-
-.play-buttons button:hover {
-    color: #007bff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .action-buttons {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    gap: 15px;
 }
 
 .action-button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
     font-size: 0.9em;
-    color: white;
+    font-weight: 500;
+    border-radius: 10px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    justify-content: center;
-    width: 100%;
+    color: white;
+    transition: all 0.3s;
 }
 
-.save-button {
+.action-button.save-button {
     background-color: #28a745;
 }
 
-.send-button {
-    background-color: #007bff;
+.action-button.send-button {
+    background-color: #0071e3;
 }
 
-.publish-button {
+.action-button.publish-button {
     background-color: #6f42c1;
-    color: white;
 }
 
-/* Novas Adições para Centralização e Organização */
+.action-button:hover {
+    opacity: 0.9;
+}
 
-/* Container Principal para Centralizar e Limitar Largura */
-.main-container {
+/* Estilos Específicos de Interatividade */
+.icon-buttons, .play-buttons, .feedback-buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    gap: 20px;
-}
-
-/* Ajuste de cada seção para espaçamento uniforme */
-.section-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-/* Ajuste de Tamanho para os Blocos Individuais */
-.header-container, .real-time-container, .time-ranges-container, .options-container, .final-animation-container {
-    flex: 1;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Garantir que as seções de Dados, Intervalos de Tempo, Opções Criativas e Animação Final ocupem o mesmo espaço */
-.time-ranges-container, .real-time-container, .options-container, .final-animation-container {
-    width: 250px;
-    margin-top: 20px;
-}
-
-/* Container Principal para Centralizar e Limitar Largura */
-.main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    gap: 30px; /* Aumentando o espaço entre as seções principais */
-}
-
-/* Ajuste de cada seção para espaçamento uniforme */
-.section-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap: 30px; /* Espaçamento entre os blocos dentro de cada linha */
-}
-
-/* Ajuste de Tamanho e Alinhamento para os Blocos Individuais */
-.header-container, .real-time-container, .time-ranges-container, .options-container, .final-animation-container {
-    flex: 1;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 10px;
-    box-sizing: border-box;
-}
-
-/* Usar Mais Espaço da Página para Blocos */
-.real-time-container, .time-ranges-container {
-    width: 48%; /* Ajuste para ocupar mais espaço horizontalmente */
-}
-
-.options-container, .final-animation-container {
-    width: 48%; /* Ajuste para os blocos na segunda linha */
-}
-
-/* Garantir que os Cartões Internos não Colem nas Bordas */
-.data-cards, .time-ranges-grid, .option-cards, .animation-preview {
     gap: 15px;
-    padding: 10px 0;
 }
 
-/* Container principal para as informações da campanha */
-.campaign-info-container {
-    display: flex;
-    flex-direction: column;
-    gap: px;
-    width: 100%;
-    margin-bottom: 20px;
+.icon-buttons button, .play-buttons button, .feedback-buttons button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #6e6e73;
+    transition: color 0.3s;
 }
 
-/* Público-alvo e Duração em uma linha */
-.target-duration-container {
-    display: flex;
-    gap: 20px;
+.icon-buttons button:hover, .play-buttons button:hover, .feedback-buttons button:hover {
+    color: #0071e3; /* Azul Apple */
 }
-
-.audience-container,
-.duration-container {
-    flex: 1;
-}
-
-.audience-container select,
-.duration-container select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 0.9em;
-}
-
-/* Organiza Duração e Chamada para Ação em linha */
-.content-parameters-container {
-    display: flex;
-    gap: 20px;
-    width: 100%;
-}
-
-.duration-container,
-.cta-container {
-    flex: 1;
-}
-
-.duration-container select,
-.cta-container input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 0.9em;
-}
-
