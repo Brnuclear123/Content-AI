@@ -1,0 +1,334 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+/* Container Principal */
+.header-container, .real-time-container, .time-ranges-container, .options-container, .final-animation-container {
+    width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Título da Página */
+.header-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Campos do Formulário */
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 0.9em;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group select,
+.form-group input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+/* Botão de Geração de Conteúdo */
+.generate-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.generate-button:hover {
+    background-color: #0056b3;
+}
+
+/* Real-Time Data (Cartões) */
+.data-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.data-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 0.9em;
+    color: #333;
+}
+
+/* Time Ranges */
+.time-ranges-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.time-ranges-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.time-range-option {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    color: #333;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.time-range-option:hover {
+    background-color: #e6e6e6;
+}
+
+/* Creative Options */
+.options-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.option-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.option-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border: 2px solid transparent;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.option-card.active {
+    border-color: #007bff;
+}
+
+.option-card:hover {
+    border-color: #007bff;
+}
+
+.icon-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.icon-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.icon-buttons button:hover {
+    color: #007bff;
+}
+
+.render-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.render-button:hover {
+    background-color: #218838;
+}
+
+/* Final Animation */
+.final-animation-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.animation-preview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.play-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #555;
+}
+
+.play-buttons button:hover {
+    color: #007bff;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.action-button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    width: 100%;
+}
+
+.save-button {
+    background-color: #28a745;
+}
+
+.send-button {
+    background-color: #007bff;
+}
+
+.publish-button {
+    background-color: #6f42c1;
+    color: white;
+}
+
+/* Novas Adições para Centralização e Organização */
+
+/* Container Principal para Centralizar e Limitar Largura */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Ajuste de cada seção para espaçamento uniforme */
+.section-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Ajuste de Tamanho para os Blocos Individuais */
+.header-container, .real-time-container, .time-ranges-container, .options-container, .final-animation-container {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Garantir que as seções de Dados, Intervalos de Tempo, Opções Criativas e Animação Final ocupem o mesmo espaço */
+.time-ranges-container, .real-time-container, .options-container, .final-animation-container {
+    width: 250px;
+    margin-top: 20px;
+}
+
+/* Container Principal para Centralizar e Limitar Largura */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 30px; /* Aumentando o espaço entre as seções principais */
+}
+
+/* Ajuste de cada seção para espaçamento uniforme */
+.section-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px; /* Espaçamento entre os blocos dentro de cada linha */
+}
+
+/* Ajuste de Tamanho e Alinhamento para os Blocos Individuais */
+.header-container, .real-time-container, .time-ranges-container, .options-container, .final-animation-container {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+/* Usar Mais Espaço da Página para Blocos */
+.real-time-container, .time-ranges-container {
+    width: 48%; /* Ajuste para ocupar mais espaço horizontalmente */
+}
+
+.options-container, .final-animation-container {
+    width: 48%; /* Ajuste para os blocos na segunda linha */
+}
+
+/* Garantir que os Cartões Internos não Colem nas Bordas */
+.data-cards, .time-ranges-grid, .option-cards, .animation-preview {
+    gap: 15px;
+    padding: 10px 0;
+}
