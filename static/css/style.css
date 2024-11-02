@@ -53,6 +53,30 @@ body {
     color: #333;
 }
 
+/* Estilo para o campo Campaign Brief */
+.brief-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.brief-container label {
+    font-size: 1em;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.brief-container textarea {
+    width: 40%;
+    height: 60px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9em;
+    resize: vertical;
+}
+
 /* Botão de Geração de Conteúdo */
 .generate-button {
     display: block;
@@ -332,3 +356,54 @@ body {
     gap: 15px;
     padding: 10px 0;
 }
+
+/* Container principal para as informações da campanha */
+.campaign-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Público-alvo e Duração em uma linha */
+.target-duration-container {
+    display: flex;
+    gap: 20px;
+}
+
+.audience-container,
+.duration-container {
+    flex: 1;
+}
+
+.audience-container select,
+.duration-container select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+/* Organiza Duração e Chamada para Ação em linha */
+.content-parameters-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.duration-container,
+.cta-container {
+    flex: 1;
+}
+
+.duration-container select,
+.cta-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
