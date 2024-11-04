@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}AI Content Generator - Dashboard{% endblock %}
+
+{% block content %}
+<div class="main-container">
+    <!-- Cabeçalho e Campos Iniciais -->
+    <div class="header-container">
+        <h1 class="header-title">AI Content Generator</h1>
+        <div class="form-group">
+            <div>
+                <label for="location">Location</label>
+                <select id="location">
+                    <option selected disabled>Select location</option>
+                    <option value="location1">Location 1</option>
+                    <option value="location2">Location 2</option>
+                    <option value="location3">Location 3</option>
+                </select>
+            </div>
+            <div>
+                <label for="retail-store">Retail Store</label>
+                <select id="retail-store">
+                    <option selected disabled>Select store</option>
+                    <option value="store1">Store 1</option>
+                    <option value="store2">Store 2</option>
+                    <option value="store3">Store 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div style="width: 100%;">
+                <label for="campaign-date">Campaign Date</label>
+                <input type="date" id="campaign-date">
+            </div>
+        </div>
+    </div>
+
+    <!-- Resumo e Informações da Campanha -->
+    <div class="campaign-info-container">
+        <div class="brief-container">
+            <label for="campaign-brief">Campaign Brief</label>
+            <textarea id="campaign-brief" placeholder="Enter your campaign summary..."></textarea>
+        </div>
+        <div class="target-duration-container">
+            <div class="audience-container">
+                <label for="target-audience">Target Audience</label>
+                <select id="target-audience">
+                    <option disabled selected>Select audience</option>
+                    <option value="children">Children - 6 to 12 years</option>
+                    <option value="teens">Teens - 13 to 17 years</option>
+                    <option value="adults">Adults - 18+</option>
+                </select>
+            </div>
+            <div class="duration-container">
+                <label for="duration">Duration</label>
+                <select id="duration">
+                    <option value="15 seconds">15 seconds</option>
+                    <option value="30 seconds">30 seconds</option>
+                    <option value="45 seconds">45 seconds</option>
+                    <option value="1 minute">1 minute</option>
+                    <option value="2 minutes">2 minutes</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dados em Tempo Real e Intervalos de Tempo -->
+    <div class="section-container">
+        <div class="real-time-container">
+            <h2>Real-Time Data</h2>
+            <div class="data-cards">
+                <div class="data-card">🌤 <b>Weather</b><br></div>
+                <div class="data-card"># <b>Trending</b><br></div>
+                <div class="data-card">🎉 <b>Local Events</b><br></div>
+                <div class="data-card">🍿 <b>Pop Culture</b><br></div>
+            </div>
+            <button class="generate-button">Generate Content</button>
+        </div>
+        <div class="time-ranges-container">
+            <h2>Time Ranges</h2>
+            <div class="time-ranges-grid">
+                <label class="time-range-option"><input type="checkbox" name="time-range"> Early Morning / Breakfast (6 am to 10:30 am) </label>
+                <label class="time-range-option"><input type="checkbox" name="time-range"> Before Lunch (10:30 am to 12:00pm) </label>
+                <label class="time-range-option"><input type="checkbox" name="time-range"> After Lunch (12:00 pm to 2:30 pm) </label>
+                <label class="time-range-option"><input type="checkbox" name="time-range"> Afternoon (2:30 pm to 5:30 pm) </label>
+                <label class="time-range-option"><input type="checkbox" name="time-range"> Happy Hour (5:30 pm to 6:30pm) </label>
+                <label class="time-range-option"><input type="checkbox" name="time-range"> Dining Time (6:30 pm to 9:30 pm) </label>
+                <label class="time-range-option"><input type="checkbox" name="time-range"> Late Night (9:30 pm to 11:59 pm)</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Opções Criativas e Pré-visualização de Animação -->
+    <div class="section-container">
+        <div class="options-container">
+            <h2>Creative Options</h2>
+            <div class="option-cards">
+                <div class="option-card">Option 1</div>
+                <div class="option-card">Option 2</div>
+                <div class="option-card">Option 3</div>
+            </div>
+            <button class="render-button">Render Animation</button>
+        </div>
+        <div class="final-animation-container">
+            <h2>Final Animation</h2>
+            <div class="animation-preview">
+                <img src="https://via.placeholder.com/100" alt="Rendered Animation">
+                <div class="play-buttons">
+                    <button title="Play">▶️</button>
+                    <button title="Pause">⏸️</button>
+                </div>
+                <div class="feedback-buttons">
+                    <button title="Like">👍</button>
+                    <button title="Dislike">👎</button>
+                    <button title="Refresh">🔄</button>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="action-button save-button">💾 Save Version</button>
+                <button class="action-button send-button">📤 Send for Approval</button>
+                <button class="action-button publish-button">🚀 Publish</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

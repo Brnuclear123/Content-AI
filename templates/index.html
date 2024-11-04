@@ -1,184 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Content Generator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <!-- Contêiner Principal para Centralizar Todo o Conteúdo -->
-    <div class="main-container">
+{% extends "base.html" %}
 
-        <!-- Seção 1: Cabeçalho e Campos Iniciais -->
-        <div class="header-container">
-            <div class="header-title">AI Content Generator</div>
-            <div class="form-group">
-                <div>
-                    <label for="location">Location</label>
-                    <select id="location">
-                        <option selected disabled>Select location</option>
-                        <option value="location1">Location 1</option>
-                        <option value="location2">Location 2</option>
-                        <option value="location3">Location 3</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="retail-store">Retail Store</label>
-                    <select id="retail-store">
-                        <option selected disabled>Select store</option>
-                        <option value="store1">Store 1</option>
-                        <option value="store2">Store 2</option>
-                        <option value="store3">Store 3</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <div style="width: 100%;">
-                    <label for="campaign-date">Campaign Date</label>
-                    <input type="date" id="campaign-date" placeholder="mm/dd/yyyy">
-                </div>
-            </div>
+{% block title %}Overview - Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Overview</h1>
+    <div class="metrics">
+        <div class="metric">
+            <h3>Active Clients</h3>
+            <p>123</p> <!-- Placeholder para contador dinâmico -->
         </div>
-
-<!-- Seção de Informações da Campanha -->
-<div class="campaign-info-container">
-    <!-- Resumo da Campanha -->
-    <div class="brief-container">
-        <label for="campaign-brief">Resumo da campanha</label>
-        <textarea id="campaign-brief" placeholder="Insira aqui o resumo ou a ideia da sua campanha..."></textarea>
-    </div>
-
-    <!-- Público-alvo e Duração em linha -->
-    <div class="target-duration-container">
-        <div class="audience-container">
-            <label for="target-audience">Público-alvo</label>
-            <select id="target-audience">
-                <option disabled selected>Selecione o público-alvo</option>
-                <option value="crianças">Crianças - 6 a 12 anos</option>
-                <option value="jovens_adultos">Jovens Adultos - 13 a 17 anos</option>
-                <option value="adultos">Adultos - 18+</option>
-            </select>
+        <div class="metric">
+            <h3>Active Campaigns</h3>
+            <p>45</p> <!-- Placeholder para contador dinâmico -->
         </div>
-        <div class="duration-container">
-            <label for="duration">Duração</label>
-            <select id="duration">
-                <option value="15 segundos">15 segundos</option>
-                <option value="30 segundos">30 segundos</option>
-                <option value="45 segundos">45 segundos</option>
-                <option value="1 minuto">1 minuto</option>
-                <option value="2 minutos">2 minutos</option>
-            </select>
+        <div class="metric">
+            <h3>Content Pieces Generated</h3>
+            <p>678</p> <!-- Placeholder para contador dinâmico -->
         </div>
     </div>
-</div>
-
-        <!-- Primeira Linha: Real-Time Data e Intervalos de Tempo -->
-        <div class="section-container">
-            <div class="real-time-container">
-                <div class="real-time-title">Real-Time Data</div>
-                <div class="data-cards">
-                    <div class="data-card">
-                        <b>🌤 Weather</b>
-                    </div>
-                    <div class="data-card">
-                        <b>Trending</b>
-                    </div>
-                    <div class="data-card">
-                        <b>Local Events</b>
-                    </div>
-                    <div class="data-card">
-                        <b>Pop Culture</b>
-                    </div>
-                </div>
-                <button class="generate-button">Generate Content</button>
-            </div>
-
-            <div class="time-ranges-container">
-                <div class="time-ranges-title">Time Ranges</div>
-                <div class="time-ranges-grid">
-                    <label class="time-range-option">
-                        <input type="checkbox" name="time-range" value="early_morning"> Early morning / Breakfast (6 am to 10:30 am)
-                    </label>
-                    <label class="time-range-option">
-                        <input type="checkbox" name="time-range" value="before_lunch"> Before Lunch (10:30 am to 12:00 pm)
-                    </label>
-                    <label class="time-range-option">
-                        <input type="checkbox" name="time-range" value="after_lunch"> After Lunch (12:00 pm to 2:30 pm)
-                    </label>
-                    <label class="time-range-option">
-                        <input type="checkbox" name="time-range" value="afternoon"> Afternoon (2:30 pm to 5:30 pm)
-                    </label>
-                    <label class="time-range-option">
-                        <input type="checkbox" name="time-range" value="happy_hour"> Happy Hour (5:30 pm to 6:30 pm)
-                    </label>
-                    <label class="time-range-option">
-                        <input type="checkbox" name="time-range" value="dining_time"> Dining Time (6:30 pm to 9:30 pm)
-                    </label>
-                    <label class="time-range-option">
-                        <input type="checkbox" name="time-range" value="late_night"> Late Night (9:30 pm to 11:59 pm)
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Segunda Linha: Creative Options e Final Animation -->
-        <div class="section-container">
-            <div class="options-container">
-                <div class="options-title">Creative Options</div>
-                <div class="option-cards">
-                    <!-- Removido o 'active' para deixar igual aos outros -->
-                    <div class="option-card">
-                        <h3>Option 1</h3>
-                        <div class="icon-buttons">
-                            <button title="Like">👍</button>
-                            <button title="Dislike">👎</button>
-                        </div>
-                        <span class="edit-icon" title="Edit">✏️</span>
-                    </div>
-                    <div class="option-card">
-                        <h3>Option 2</h3>
-                        <div class="icon-buttons">
-                            <button title="Like">👍</button>
-                            <button title="Dislike">👎</button>
-                        </div>
-                        <span class="edit-icon" title="Edit">✏️</span>
-                    </div>
-                    <div class="option-card">
-                        <h3>Option 3</h3>
-                        <div class="icon-buttons">
-                            <button title="Like">👍</button>
-                            <button title="Dislike">👎</button>
-                        </div>
-                        <span class="edit-icon" title="Edit">✏️</span>
-                    </div>
-                </div>
-                <button class="render-button">Render Animation</button>
-            </div>
-
-            <div class="final-animation-container">
-                <div class="final-animation-title">Final Animation</div>
-                <div class="animation-preview">
-                    <img src="https://via.placeholder.com/100" alt="Rendered Animation">
-                    <div class="play-buttons">
-                        <button title="Play">▶️</button>
-                        <button title="Pause">⏸️</button>
-                    </div>
-                    <div class="feedback-buttons">
-                        <button title="Like">👍</button>
-                        <button title="Dislike">👎</button>
-                        <button title="Refresh">🔄</button>
-                    </div>
-                </div>
-                <div class="action-buttons">
-                    <button class="action-button save-button">💾 Save Version</button>
-                    <button class="action-button send-button">📤 Send for Approval</button>
-                    <button class="action-button publish-button">🚀 Publish</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
-</html>
+{% endblock %}
