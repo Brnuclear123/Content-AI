@@ -1,21 +1,73 @@
 {% extends "base.html" %}
 
-{% block title %}Overview - Dashboard{% endblock %}
+{% block title %}Developer Overview{% endblock %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dev_overview.css') }}">
+{% endblock %}
 
 {% block content %}
-    <h1>Overview</h1>
-    <div class="metrics">
-        <div class="metric">
-            <h3>Active Clients</h3>
-            <p>123</p> <!-- Placeholder para contador dinâmico -->
+<div class="developer-overview-container">
+    <header>
+        <h1>Developer Dashboard</h1>
+        <p>Welcome to the developer’s overview. Here is a snapshot of the platform’s current performance and activity.</p>
+    </header>
+
+    <!-- Metrics Section -->
+    <section class="metrics-section">
+        <h2>Platform Metrics</h2>
+        <div class="metric-cards">
+            <div class="metric-card">
+                <h3>Total Campaigns</h3>
+                <p>125</p>
+            </div>
+            <div class="metric-card">
+                <h3>Active Clients</h3>
+                <p>45</p>
+            </div>
+            <div class="metric-card">
+                <h3>Overall Engagement</h3>
+                <p>82%</p>
+            </div>
+            <div class="metric-card">
+                <h3>System Uptime</h3>
+                <p>99.9%</p>
+            </div>
         </div>
-        <div class="metric">
-            <h3>Active Campaigns</h3>
-            <p>45</p> <!-- Placeholder para contador dinâmico -->
+    </section>
+
+    <!-- Recent Activity Section -->
+    <section class="activity-section">
+        <h2>Recent Activity</h2>
+        <div class="activity-log">
+            <div class="activity-entry">
+                <p><strong>Client ABC</strong> created a new campaign.</p>
+                <span>2 hours ago</span>
+            </div>
+            <div class="activity-entry">
+                <p><strong>Client XYZ</strong> uploaded new assets.</p>
+                <span>4 hours ago</span>
+            </div>
+            <div class="activity-entry">
+                <p><strong>System Update</strong> - Maintenance completed successfully.</p>
+                <span>Yesterday</span>
+            </div>
         </div>
-        <div class="metric">
-            <h3>Content Pieces Generated</h3>
-            <p>678</p> <!-- Placeholder para contador dinâmico -->
+    </section>
+
+    <!-- Alerts Section -->
+    <section class="alerts-section">
+        <h2>Moderation Alerts</h2>
+        <div class="alert-cards">
+            <div class="alert-card">
+                <h3>Pending Approvals</h3>
+                <p>3 campaigns</p>
+            </div>
+            <div class="alert-card">
+                <h3>Flagged Content</h3>
+                <p>2 assets</p>
+            </div>
         </div>
-    </div>
+    </section>
+</div>
 {% endblock %}

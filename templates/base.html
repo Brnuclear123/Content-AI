@@ -4,31 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Dashboard{% endblock %}</title>
+
+    <!-- CSS Global -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- CSS Específico do papel -->
+    {% if session['role'] == 'developer' %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/dev_style.css') }}">
+    {% elif session['role'] == 'client' %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/client_style.css') }}">
+    {% endif %}
+
+    {% block head_extra %}{% endblock %}
 </head>
 <body>
-    <!-- Sidebar -->
     <div class="sidebar">
         <h2>RetailMedia AI</h2>
         <nav>
-            <a href="{{ url_for('index') }}">Overview</a>
-            <a href="{{ url_for('clients') }}">Clients</a>
-            <a href="{{ url_for('system') }}">System</a>
-            <a href="{{ url_for('moderation') }}">Moderation</a>
-            <a href="{{ url_for('analytics') }}">Analytics</a>
-            <a href="{{ url_for('content_ai') }}">Content AI</a>
-            <a href="{{ url_for('campaign') }}">Campaign Page</a> <!-- Atualizado para Campaign Page -->
-            <a href="{{ url_for('assets') }}">Asset Library</a> <!-- Asset Library original -->
+            {% if session['role'] == 'developer' %}
+                <a href="{{ url_for('index') }}">Overview</a>
+                <a href="{{ url_for('clients') }}">Clients</a>
+                <a href="{{ url_for('system') }}">System</a>
+                <a href="{{ url_for('moderation') }}">Moderation</a>
+                <a href="{{ url_for('analytics') }}">Analytics</a>
+                <a href="{{ url_for('content_ai') }}">Content AI</a>
+                <a href="{{ url_for('campaign') }}">Campaign Page</a>
+                <a href="{{ url_for('assets') }}">Asset Library</a>
+            {% elif session['role'] == 'client' %}
+                <a href="{{ url_for('client_overview') }}">Overview</a>
+                <a href="{{ url_for('content_ai') }}">Content AI</a>
+                <a href="{{ url_for('campaign') }}">Campaign Page</a>
+                <a href="{{ url_for('assets') }}">Asset Library</a>
+                <a href="{{ url_for('analytics') }}">Analytics</a>
+                <a href="{{ url_for('moderation') }}">Moderation</a>
+            {% endif %}
+            <a href="{{ url_for('company_profile') }}">Company Profile</a>
         </nav>
+        <div class="logout-container">
+            <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+        </div>
     </div>
 
     <!-- Área Principal -->
     <div class="main-content">
         {% block content %}
-        <!-- Conteúdo da página específica será carregado aqui -->
         {% endblock %}
     </div>
 
+    <!-- JS Script -->
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>

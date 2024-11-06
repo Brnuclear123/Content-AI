@@ -1,16 +1,16 @@
-{% extends "base.html" %}
+{% extends "client_base.html" %}
 
-{% block title %}Developer Analytics{% endblock %}
+{% block title %}Client Analytics{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/dev_styles.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/client_style.css') }}">
 {% endblock %}
 
 {% block content %}
 <div class="analytics-container">
     <header>
         <h1>Analytics Dashboard</h1>
-        <p>Analyze platform performance, campaign success, and client engagement over time.</p>
+        <p>Track campaign performance and audience engagement for your brand.</p>
     </header>
 
     <!-- Performance Metrics Section -->
@@ -22,12 +22,12 @@
                 <p>74%</p>
             </div>
             <div class="metric-card">
-                <h3>Average Conversion Rate</h3>
+                <h3>Conversion Rate</h3>
                 <p>4.2%</p>
             </div>
             <div class="metric-card">
-                <h3>Total Campaigns</h3>
-                <p>300</p>
+                <h3>Active Campaigns</h3>
+                <p>15</p>
             </div>
             <div class="metric-card">
                 <h3>Total Impressions</h3>
@@ -38,14 +38,14 @@
 
     <!-- Graphs Section -->
     <section class="graphs-section">
-        <h2>Performance Over Time</h2>
+        <h2>Campaign Performance Over Time</h2>
         <div class="graphs-container">
             <div class="graph-card">
-                <h3>Engagement Over Time</h3>
+                <h3>Engagement Rate</h3>
                 <canvas id="engagementChart"></canvas>
             </div>
             <div class="graph-card">
-                <h3>Conversion Rate Over Time</h3>
+                <h3>Conversion Rate</h3>
                 <canvas id="conversionChart"></canvas>
             </div>
         </div>
@@ -55,17 +55,17 @@
     <section class="geographic-insights">
         <h2>Geographic Insights</h2>
         <div class="map-card">
-            <h3>Campaign Reach by Region</h3>
+            <h3>Reach by Region</h3>
             <div class="map-placeholder">Map Placeholder</div>
         </div>
     </section>
 
     <!-- Trends and Insights Section -->
     <section class="trends-insights">
-        <h2>Top Trends and Insights</h2>
+        <h2>Key Trends and Insights</h2>
         <div class="insights-cards">
             <div class="insight-card">
-                <h3>Most Engaging Campaign</h3>
+                <h3>Top Campaign</h3>
                 <p>Campaign XYZ - 85% Engagement</p>
             </div>
             <div class="insight-card">

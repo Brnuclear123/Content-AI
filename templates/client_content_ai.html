@@ -3,7 +3,7 @@
 {% block title %}AI Content Generator - Dashboard{% endblock %}
 
 {% block content %}
-<div class="main-container">
+<div class="content-ai-container">
     <!-- Cabeçalho e Campos Iniciais -->
     <div class="header-container">
         <h1 class="header-title">AI Content Generator</h1>
@@ -30,11 +30,11 @@
 
         <!-- Campo de Duração da Campanha -->
         <div class="form-group">
-            <div style="width: 100%;">
+            <div class="date-group">
                 <label for="campaign-start-date">Start of the campaign</label>
                 <input type="date" id="campaign-start-date" required>
             </div>
-            <div style="width: 100%;">
+            <div class="date-group">
                 <label for="campaign-end-date">End of campaign</label>
                 <input type="date" id="campaign-end-date" required>
             </div>
@@ -46,23 +46,23 @@
         <div class="real-time-container">
             <h2>Real-Time Data</h2>
             <div class="data-cards">
-                <div class="data-card">🌤 <b>Weather</b><br></div>
-                <div class="data-card"># <b>Trending</b><br></div>
-                <div class="data-card">🎉 <b>Local Events</b><br></div>
-                <div class="data-card">🍿 <b>Pop Culture</b><br></div>
+                <div class="data-card">🌤 <b>Weather</b></div>
+                <div class="data-card"># <b>Trending</b></div>
+                <div class="data-card">🎉 <b>Local Events</b></div>
+                <div class="data-card">🍿 <b>Pop Culture</b></div>
             </div>
             <button class="generate-button">Generate Content</button>
         </div>
         <div class="time-ranges-container">
             <h2>Time Ranges</h2>
             <div class="time-ranges-grid">
-                <label class="time-range-option"><input type="checkbox" name="time-range"> Early Morning / Breakfast (6 am to 10:30 am) </label>
-                <label class="time-range-option"><input type="checkbox" name="time-range"> Before Lunch (10:30 am to 12:00pm) </label>
-                <label class="time-range-option"><input type="checkbox" name="time-range"> After Lunch (12:00 pm to 2:30 pm) </label>
-                <label class="time-range-option"><input type="checkbox" name="time-range"> Afternoon (2:30 pm to 5:30 pm) </label>
-                <label class="time-range-option"><input type="checkbox" name="time-range"> Happy Hour (5:30 pm to 6:30pm) </label>
-                <label class="time-range-option"><input type="checkbox" name="time-range"> Dining Time (6:30 pm to 9:30 pm) </label>
-                <label class="time-range-option"><input type="checkbox" name="time-range"> Late Night (9:30 pm to 11:59 pm)</label>
+                <label class="time-range-option"><input type="checkbox" name="time-range"> Early Morning (6 am - 10:30 am) </label>
+                <label class="time-range-option"><input type="checkbox" name="time-range"> Before Lunch (10:30 am - 12:00 pm) </label>
+                <label class="time-range-option"><input type="checkbox" name="time-range"> After Lunch (12:00 pm - 2:30 pm) </label>
+                <label class="time-range-option"><input type="checkbox" name="time-range"> Afternoon (2:30 pm - 5:30 pm) </label>
+                <label class="time-range-option"><input type="checkbox" name="time-range"> Happy Hour (5:30 pm - 6:30 pm) </label>
+                <label class="time-range-option"><input type="checkbox" name="time-range"> Dining Time (6:30 pm - 9:30 pm) </label>
+                <label class="time-range-option"><input type="checkbox" name="time-range"> Late Night (9:30 pm - 11:59 pm)</label>
             </div>
         </div>
     </div>
@@ -81,7 +81,6 @@
         <div class="final-animation-container">
             <h2>Final Animation</h2>
             <div class="animation-preview">
-                <!-- Imagem escalada para manter a proporção -->
                 <img src="https://via.placeholder.com/1920x158" alt="Rendered Animation">
                 <div class="play-buttons">
                     <button title="Play">▶️</button>
@@ -100,5 +99,5 @@
             </div>
         </div>
     </div>
-    {% endblock %}
-    
+</div>
+{% endblock %}
