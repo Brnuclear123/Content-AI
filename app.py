@@ -1,7 +1,12 @@
+import os
 from flask import Flask, render_template, redirect, url_for, request, session, abort
+from dotenv import load_dotenv
 from jinja2 import ChoiceLoader, FileSystemLoader
+from database import db, app  # Importa o app e db configurado no database.py
+import models  # Importa os modelos para registrar as tabelas
 
 app = Flask(__name__)
+
 app.secret_key = "sua_chave_secreta"
 
 # Configuração para múltiplas pastas de templates
@@ -146,6 +151,11 @@ def client_company_profile():
 def logout():
     session.clear()
     return redirect(url_for('login'))
+
+# Criar as tabelas antes da primeira requisição
+@app.before_first_request
+def create_tables():
+    db.create_all()
 
 if __name__ == '__main__':
     app.run(debug=True)

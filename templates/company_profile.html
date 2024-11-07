@@ -3,6 +3,8 @@
 {% block title %}Perfil da Empresa{% endblock %}
 
 {% block content %}
+<script src="{{ url_for('static', filename='js/company_profile.js') }}"></script>
+
 <div class="profile-container">
     <h1>Perfil da Empresa</h1>
     <form id="company-profile-form">
@@ -47,6 +49,3 @@
     </form>
 </div>
 {% endblock %}
-
-<!-- Script específico para o formulário de perfil da empresa -->
-<script src="{{ url_for('static', filename='js/company_profile.js') }}"></script>
