@@ -28,11 +28,12 @@ def login_required(role=None):
         return decorated_function
     return wrapper
 
+# Rota principal que redireciona para a visão correta
 @app.route('/')
 def index():
     if 'role' in session:
         if session['role'] == 'developer':
-            return render_template('index.html')
+            return redirect(url_for('dev_overview'))
         elif session['role'] == 'client':
             return redirect(url_for('client_overview'))
     return redirect(url_for('login'))
@@ -54,82 +55,97 @@ def login():
     
     return render_template('login.html')
 
+# --------------------
+# Rotas para Developer
+# --------------------
+@app.route('/index')
+@login_required(role='developer')
+def dev_overview():
+    return render_template('index.html')
+
+@app.route('/clients')
+@login_required(role='developer')
+def dev_clients():
+    return render_template('clients.html')
+
+@app.route('/system')
+@login_required(role='developer')
+def dev_system():
+    return render_template('system.html')
+
+@app.route('/moderation')
+@login_required(role='developer')
+def dev_moderation():
+    return render_template('moderation.html')
+
+@app.route('/analytics')
+@login_required(role='developer')
+def dev_analytics():
+    return render_template('analytics.html')
+
+@app.route('/content_ai')
+@login_required(role='developer')
+def dev_content_ai():
+    return render_template('content_ai.html')
+
+@app.route('/campaign')
+@login_required(role='developer')
+def dev_campaign():
+    return render_template('campaign.html')
+
+@app.route('/assets')
+@login_required(role='developer')
+def dev_assets():
+    return render_template('assets.html')
+
+@app.route('/company_profile')
+@login_required(role='developer')
+def dev_company_profile():
+    return render_template('company_profile.html')
+
+# --------------------
+# Rotas para Client
+# --------------------
+@app.route('/client/overview')
+@login_required(role='client')
+def client_overview():
+    return render_template('client_overview.html')
+
+@app.route('/client/content_ai')
+@login_required(role='client')
+def client_content_ai():
+    return render_template('client_content_ai.html')
+
+@app.route('/client/campaign')
+@login_required(role='client')
+def client_campaign():
+    return render_template('client_campaign.html')
+
+@app.route('/client/assets')
+@login_required(role='client')
+def client_assets():
+    return render_template('client_assets.html')
+
+@app.route('/client/analytics')
+@login_required(role='client')
+def client_analytics():
+    return render_template('client_analytics.html')
+
+@app.route('/client/moderation')
+@login_required(role='client')
+def client_moderation():
+    return render_template('client_moderation.html')
+
+@app.route('/client/company_profile')
+@login_required(role='client')
+def client_company_profile():
+    return render_template('client_company_profile.html')
+
+# Rota de logout
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect(url_for('login'))
-
-# Rota para moderação, com distinção entre desenvolvedores e clientes
-@app.route('/moderation')
-@login_required()
-def moderation():
-    if session['role'] == 'developer':
-        return render_template('moderation.html')  # Moderation global
-    elif session['role'] == 'client':
-        return render_template('client_moderation.html')  # Moderation para cliente
-
-# Rota de analytics, separada para desenvolvedores e clientes
-@app.route('/analytics')
-@login_required()
-def analytics():
-    if session['role'] == 'developer':
-        return render_template('analytics.html')
-    elif session['role'] == 'client':
-        return render_template('client_analytics.html')
-
-# Rota específica para desenvolvedores - Clients
-@app.route('/clients')
-@login_required(role='developer')
-def clients():
-    return render_template('clients.html')
-
-# Rota específica para desenvolvedores - System
-@app.route('/system')
-@login_required(role='developer')
-def system():
-    return render_template('system.html')
-
-# Rota de campanhas, acessível para todos os usuários logados
-@app.route('/campaign')
-@login_required()
-def campaign():
-    if session['role'] == 'developer':
-        return render_template('campaign.html')
-    elif session['role'] == 'client':
-        return render_template('client_campaign.html')
-
-# Biblioteca de ativos, acessível para todos os usuários logados
-@app.route('/assets')
-@login_required()
-def assets():
-    if session['role'] == 'developer':
-        return render_template('assets.html')
-    elif session['role'] == 'client':
-        return render_template('client_assets.html')
-
-# Content AI, acessível para todos os usuários logados
-@app.route('/content_ai')
-@login_required()
-def content_ai():
-    if session['role'] == 'developer':
-        return render_template('content_ai.html')
-    elif session['role'] == 'client':
-        return render_template('client_content_ai.html')
-
-# Perfil da empresa, acessível para todos os usuários logados
-@app.route('/company_profile')
-@login_required()
-def company_profile():
-    if session['role'] == 'developer':
-        return render_template('company_profile.html')
-    elif session['role'] == 'client':
-        return render_template('client_company_profile.html')
-
-# Rota de visão geral específica para o cliente
-@app.route('/client_overview')
-@login_required(role='client')
-def client_overview():
-    return render_template('client_overview.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

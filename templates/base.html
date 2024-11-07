@@ -22,24 +22,25 @@
         <h2>RetailMedia AI</h2>
         <nav>
             {% if session['role'] == 'developer' %}
-                <a href="{{ url_for('index') }}">Overview</a>
-                <a href="{{ url_for('clients') }}">Clients</a>
-                <a href="{{ url_for('system') }}">System</a>
-                <a href="{{ url_for('moderation') }}">Moderation</a>
-                <a href="{{ url_for('analytics') }}">Analytics</a>
-                <a href="{{ url_for('content_ai') }}">Content AI</a>
-                <a href="{{ url_for('campaign') }}">Campaign Page</a>
-                <a href="{{ url_for('assets') }}">Asset Library</a>
+                <a href="{{ url_for('dev_overview') }}">Overview</a>
+                <a href="{{ url_for('dev_clients') }}">Clients</a>
+                <a href="{{ url_for('dev_system') }}">System</a>
+                <a href="{{ url_for('dev_moderation') }}">Moderation</a>
+                <a href="{{ url_for('dev_analytics') }}">Analytics</a>
+                <a href="{{ url_for('dev_content_ai') }}">Content AI</a>
+                <a href="{{ url_for('dev_campaign') }}">Campaign Page</a>
+                <a href="{{ url_for('dev_assets') }}">Asset Library</a>
+                <a href="{{ url_for('dev_company_profile') }}">Company Profile</a>
             {% elif session['role'] == 'client' %}
                 <a href="{{ url_for('client_overview') }}">Overview</a>
-                <a href="{{ url_for('content_ai') }}">Content AI</a>
-                <a href="{{ url_for('campaign') }}">Campaign Page</a>
-                <a href="{{ url_for('assets') }}">Asset Library</a>
-                <a href="{{ url_for('analytics') }}">Analytics</a>
-                <a href="{{ url_for('moderation') }}">Moderation</a>
+                <a href="{{ url_for('client_content_ai') }}">Content AI</a>
+                <a href="{{ url_for('client_campaign') }}">Campaign Page</a>
+                <a href="{{ url_for('client_assets') }}">Asset Library</a>
+                <a href="{{ url_for('client_analytics') }}">Analytics</a>
+                <a href="{{ url_for('client_moderation') }}">Moderation</a>
+                <a href="{{ url_for('client_company_profile') }}">Company Profile</a>
             {% endif %}
-            <a href="{{ url_for('company_profile') }}">Company Profile</a>
-        </nav>
+        </nav>        
         <div class="logout-container">
             <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
         </div>
